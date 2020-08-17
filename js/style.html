@@ -1,0 +1,55 @@
+ 
+      <script>
+            /* Selektoren für die Elemente im HTML */
+            var priceContainerSelector = ".pricing_grid"
+            var buyButtonSelector = ".buy-button a"
+    ​
+            /* Klassenname, in dem die Animation definiert wurde */
+            var animationClass = "drop-out"
+    ​
+            /* Zeitabstand zwischen Animation der Container (Millisekunden) */
+            var animationOffsetTime = 100
+    ​
+            /* ToDo: Pass diese Funktion so an, dass die Preise, die nicht geklickt wurden, nach einander mit jeweils kurzer Verzögerung die "Fall"-Animation ausführen */
+            function buyButtonClicked(clickedPriceContainer, priceContainers){
+                removeRest.addDropAnimation(clickedPriceContainer)
+    ​
+                // Bonus: Ternary operator für Drehrichtung je nach gerades oder ungerades Element
+            }
+    ​
+            var removeRest = {
+                containers: [],
+                setup: function(selector, callback){
+                    this.buttons = document.querySelectorAll(selector)
+                    this.callback = callback
+                    this.runCallback = this.runCallback.bind(this)
+                    this.buttons.length && this.addListeners()
+                },
+                addListeners: function(){
+                    for(var i=0; i<this.buttons.length; i++){
+                        var button = this.buttons[i]
+                        button.addEventListener("click", this.runCallback)
+                        this.containers.push(this.getContainer(button))
+                    }
+                },
+                getContainer: function(button){
+                    return button.closest(priceContainerSelector)
+                },
+                runCallback: function(e){
+                    this.callback(this.getContainer(e.target), this.containers)
+                },
+                addDropAnimation: function(container, delay = 0){
+                    setTimeout(function(){
+                        this.animate(container)
+                    }.bind(this), delay)
+                },
+                animate: function(container){
+                    container.classList.add(animationClass)
+                }
+            }
+    ​
+            removeRest.setup(buyButtonSelector, buyButtonClicked)
+        </script>
+    
+
+    

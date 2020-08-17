@@ -1,0 +1,211 @@
+$header1-color: red;
+$header2-color: #3498db;
+$header3-color: gold;
+$header4-color: #009432;
+$content-color: white;
+%border-top{
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+}
+%border-bottom{
+      border-bottom-left-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+}
+%buy-button{
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      margin: 0;
+      margin-left: 3rem;
+      margin-right: 3rem;
+      font-size: 0.8rem;
+      height: 1.1rem;
+}
+
+
+    %header-cell{
+            display: grid;
+            grid-area: A;
+            font-size: 1rem;
+      }
+      %p-cell{
+            display: flex;
+            justify-content: center;  
+            padding-top: 0;
+            margin-top: 0;
+      }
+      %content-font-size{
+            font-size: .9rem;
+      }
+      %button{
+            display: flex;
+            justify-content: center;
+      }
+      @media only screen and (max-width: 45rem) {
+      
+body{
+      position: relative;
+      display: flex;
+     justify-content: center;
+     flex-direction: column;
+      font-size: 62.5%;
+      font-family: 'Raleway', sans-serif;
+      background-repeat: no-repeat;
+      height: 100%;}
+}
+      .body{ 
+            background-image: url(../images/1.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+
+      header{display: flex;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.5rem;
+            color: white;
+            left: 3rem;
+      }
+      p{
+            @extend %p-cell;
+      }
+      .container{
+            display: grid;
+            width: fit-content;
+            margin: auto;
+            row-gap: 1.5rem;
+            column-gap: 3rem;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr ;
+            grid-template-areas:
+            "A B C D"
+      }
+   
+     .standard-header {
+            @extend %header-cell;
+            @extend %border-top;
+            background-color: $header1-color;
+            &:hover{ color: white;
+            }
+      }
+      
+     h2{
+           display: grid;
+           justify-content: center;
+           text-align: center;
+     }
+      .standard-content{
+            background-color: $content-color;
+            @extend %content-font-size;
+            @extend %border-bottom;
+            padding-top:.5rem; 
+            padding-bottom: .5rem;
+            .tick-mark1{
+                  color: $header1-color;
+                  font-size: larger;
+            }
+            .cross1{
+                  @extend .tick-mark1;
+            }
+
+      .buy-button1{
+      @extend %buy-button;
+      background-color:$header1-color;
+      &:hover{
+            color:white;
+      }
+}
+
+      }
+.popular-header{
+      @extend %header-cell;
+      @extend %border-top;
+      background-color: $header2-color;
+      &:hover{
+            color: white;
+      }
+}
+.popular-content{
+ @extend .standard-content; 
+
+ .tick-mark2{
+      color: $header2-color;
+      font-size: larger;
+}
+.cross2{
+      @extend .tick-mark2;
+}
+
+}
+.buy-button2{
+      @extend %buy-button;
+      background-color: $header2-color;
+      &:hover{
+            color:white;
+      }
+}
+.golden-header{
+@extend %header-cell;
+@extend %border-top;
+background-color: $header3-color;
+&:hover{
+      color: white;
+}
+}
+.golden-content{
+      @extend .popular-content;     
+      .tick-mark3{
+            color: $header3-color;
+            font-size: larger;
+      }
+      .cross3{
+            @extend .tick-mark3;
+      }
+      
+     }
+     .buy-button3{
+      @extend %buy-button;
+      background-color: $header3-color;
+      &:hover{
+            color:white;
+      }
+}
+.professional{
+      margin: 0;
+      height:70rem;
+
+.professional-header{
+      @extend %header-cell;
+      @extend %border-top;
+      background-color: $header4-color;
+      &:hover{
+            color: white;
+      }
+}
+      .professional-content{
+            @extend .popular-content;     
+            .tick-mark4{
+                  color: $header4-color;
+                  font-size: larger;
+            }
+            .cross4{
+                  @extend .tick-mark4;
+            }
+            
+           }
+           .buy-button4{
+            @extend %buy-button;
+            background-color: $header4-color;
+            &:hover{
+                  color:white;
+            }
+      }
+}
+      footer{
+            display: flex;
+            justify-content: center;
+            font-size: .8rem;
+            color: white;
+            padding-top: 2rem;
+      }
+}     
+      
